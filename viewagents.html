@@ -1,0 +1,41 @@
+<html>
+<body>
+
+<b>Top 5 Agents Based on Ticket Sales for Past Year</b>
+<table>
+    <th>Booking Agents</th>
+
+{% for line in posts2 %}
+    <tr>
+        <td>{{line['email']}}</td>
+    </tr>
+{% endfor %}
+</table>
+</br>
+
+<b>Top 5 Agents Based on Ticket Sales for Past Month</b>
+<table>
+    <th>Booking Agents</th>
+
+{% for line in posts1 %}
+    <tr>
+        <td>{{line['email']}}</td>
+    </tr>
+{% endfor %}
+</table>
+</br>
+
+<b>Top 5 Agents Based on Commissions for Past Year</b>
+<table>
+    <th>Booking Agents</th>
+
+{% for line in posts3 %}
+    <tr>
+        <td>{{line['email']}}</td>
+    </tr>
+{% endfor %}
+</table>
+</br>
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

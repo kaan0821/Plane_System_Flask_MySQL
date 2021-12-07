@@ -1,0 +1,89 @@
+<html>
+    <head>
+    </head>
+    <body>
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>No result has been found.</b>
+    </FONT>
+    {% endif %}
+
+    {% if message == "successful" and role == "customer"%}
+    <FONT COLOR="GREEN">
+        <b>Results:</b>
+    </FONT>
+
+    <table>
+        <th>Flight Status</th>
+        <th>Flight Number</th>
+        <th>Departure Date</th>
+        <th>Arrival Date</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['status']}}</td>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['departure_time']}}</td>
+            <td>{{line['arrival_time']}}</td>
+            <td><a href='/customerpurchase'>
+                <button type="button">Purchase</button> 
+            </a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="/returncustomer">Go back</a>
+    {% endif %}
+
+    {% if message == "successful" and role == "agent"%}
+    <FONT COLOR="GREEN">
+        <b>Results:</b>
+    </FONT>
+
+    <table>
+        <th>Flight Status</th>
+        <th>Flight Number</th>
+        <th>Departure Date</th>
+        <th>Arrival Date</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['status']}}</td>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['departure_time']}}</td>
+            <td>{{line['arrival_time']}}</td>
+            <td><a href='/agentpurchase'>
+                <button type="button">Purchase</button> 
+            </a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="/returnagent">Go back</a>
+    {% endif %}
+
+    {% if message=='successful' and not role%}
+    <FONT COLOR="GREEN">
+        <b>Results:</b>
+    </FONT>
+
+    <table>
+        <th>Flight Status</th>
+        <th>Flight Number</th>
+        <th>Departure Date</th>
+        <th>Arrival Date</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['status']}}</td>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['departure_time']}}</td>
+            <td>{{line['arrival_time']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+
+    </body>
+</html>

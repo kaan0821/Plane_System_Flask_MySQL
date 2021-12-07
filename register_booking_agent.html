@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/bookingagentAuth" method="POST">
+	<label for="username">Email:</label>
+	<input type="text" name = "username" placeholder="username" required/> </br>
+
+	<label for="password">Password:</label>
+	<input type="password" name = "password" placeholder="password" required/></br>
+
+	<label for="booking_agent_id">Booking Agent ID:</label>
+	<input type="text" name = "booking_agent_id" placeholder="booking agent id" required/></br>
+
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/">Go back</a>
+</body>
+</html>

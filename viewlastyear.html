@@ -1,0 +1,43 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+<canvas id="reportsyear" style="width:100%;max-width:800px"></canvas>
+
+<script>
+var data1 = parseInt('{{ data1 }}');
+var data2 = parseInt('{{ data2 }}');
+var data3 = parseInt('{{ data3 }}');
+var data4 = parseInt('{{ data4 }}');
+var data5 = parseInt('{{ data5 }}');
+var data6 = parseInt('{{ data6 }}');
+var data7 = parseInt('{{ data7 }}');
+var data8 = parseInt('{{ data8 }}');
+var data9 = parseInt('{{ data9 }}');
+var data10 = parseInt('{{ data10 }}');
+var data11 = parseInt('{{ data11 }}');
+var data12 = parseInt('{{ data12 }}');
+var xValues = ["1st Month", "2nd Month", "3rd Month", "4th Month", "5th Month", "6th Month", "7th Month", "8th Month", "9th Month", "10th Month", "11th Month", "12th Month"];
+var yValues = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12]; 
+var barColors = ["red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red", "red"];
+
+new Chart("reportsyear", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Last Year Ticket Sales"
+    }
+  }
+});
+</script>
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <body>
+            {% if message == "successful" %}
+            <FONT COLOR="GREEN">
+                <b>A flight status has been successfully changed.</b>
+            </FONT>
+            {% endif %}
+
+            {% if message == "unsuccessful" %}
+            <FONT COLOR="RED">
+	            <b>There is something wrong with your input.</b>
+            </FONT>
+            {% endif %}
+            <form action="/changestatusAuth" method="POST">
+                <label for="airline_name">Airline Name:</label>
+                <input type="text" name = "airline_name" placeholder="airline name" required/> </br>
+
+                <label for="flight_num">Flight Number:</label>
+                <input type="text" name = "flight_num" placeholder="flight number" required/></br>
+
+                <label for="status">Choose the new status:</label></br>
+                <select name="status" id="status">
+                    <option value="upcoming">Upcoming</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="delayed">Delayed</option>
+                </select>
+                {% if error %}
+                    <p class="error"><strong>Error:</strong> {{error}}</p>
+                {% endif %}
+                <input type="submit" value = Change/>
+            </form>
+            <a href="/returnstaff">Go back</a>
+        </body>
+    </head>
+</html>

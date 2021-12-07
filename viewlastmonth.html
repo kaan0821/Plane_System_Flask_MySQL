@@ -1,0 +1,32 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+    <canvas id="reportsmonth" style="width:100%;max-width:800px"></canvas>
+
+    <script>
+    var data = parseInt('{{ data }}');
+    var xValues = ["Last Month"];
+    var yValues = [data];
+    var barColors = ["red"];
+    
+    new Chart("reportsmonth", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "Last Month Ticket Sales"
+        }
+      }
+    });
+    </script>
+</body>
+<a href="/returnstaff">Go back</a>
+</html>

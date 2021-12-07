@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+    {% if message == "successful" %}
+            <FONT COLOR="GREEN">
+                <b>The airport has been successfully added.</b>
+            </FONT>
+            {% endif %}
+
+            {% if message == "unsuccessful" %}
+            <FONT COLOR="RED">
+	            <b>This airport already exists.</b>
+            </FONT>
+            {% endif %}
+<form action="/addairportAuth" method="POST">
+	<label for="airport_name">Airport Name:</label>
+	<input type="text" name = "airport_name" placeholder="airport name" required/></br>
+
+    <label for="airport_city">Airport City:</label>
+	<input type="text" name = "airport_city" placeholder="airport city" required/></br>
+
+	<input type="submit" value = Add />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

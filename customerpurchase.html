@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>There is something wrong with your input, or you may have already purchased it.</b>
+    </FONT>
+    {% endif %}
+
+    {% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>Your purchase was successful.</b>
+    </FONT>
+    {% endif %}
+    
+<form action="/customerpurchaseAuth" method="POST">
+    <b>Which flight would you like to purchase?</b>
+    </br>
+
+	<label for="airline_name">Airline Name:</label>
+	<input type="text" name = "airline_name" placeholder="airline name" required/></br>
+
+    <label for="flight_num">Flight Number:</label>
+	<input type="text" name = "flight_num" placeholder="flight_num id" required/></br>
+
+	<input type="submit" value = Purchase />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/returncustomer">Go back</a>
+</body>
+</html>

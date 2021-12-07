@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+    {% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>The airplane has been successfully added.</b>
+    </FONT>
+
+    <table>
+        <th>Airline Name</th>
+        <th>Airplane ID</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['airplane_id']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    {% endif %}
+
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>This airplane already exists.</b>
+    </FONT>
+    {% endif %}
+<form action="/addairplaneAuth" method="POST">
+	<label for="airline_name">Airline Name:</label>
+	<input type="text" name = "airline_name" placeholder="airline name" required/></br>
+
+    <label for="airplane_id">Airplane ID:</label>
+	<input type="text" name = "airplane_id" placeholder="airplane id" required/></br>
+
+    <label for="seats">Seats:</label>
+	<input type="text" name = "seats" placeholder="seats" required/></br>
+
+	<input type="submit" value = Add />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

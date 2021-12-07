@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+    {% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>The booking agent has been successfully added.</b>
+    </FONT>
+    {% endif %}
+
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>This booking agent already exists, the information entered matches an existing user who is not a booking agent, or your input was incorrect.</b>
+    </FONT>
+    {% endif %}
+<form action="/addagentsAuth" method="POST">
+	<label for="email">Email:</label>
+	<input type="text" name = "email" placeholder="email" required/></br>
+
+    <label for="airline_name">Airline Name:</label>
+    <input type="text" name = "airline_name" placeholder="airline name" required/></br>
+    <input type="submit" value = Add />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

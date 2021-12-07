@@ -1,0 +1,91 @@
+<html>
+    <script
+ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<body>
+
+
+<canvas id="topcustomerstickets" style="width:100%;max-width:700px"></canvas>
+
+<script>
+var yValues = []
+var data1 = '{{ data1 }}';
+var data2 = '{{ data2 }}';
+var data3 = '{{ data3 }}'; 
+var data4 = '{{ data4 }}'; 
+var data5 = '{{ data5 }}'; 
+ 
+var dodo1 = parseInt('{{ dodo1 }}');
+var dodo2 = parseInt('{{ dodo2 }}'); 
+var dodo3 = parseInt('{{ dodo3 }}'); 
+var dodo4 = parseInt('{{ dodo4 }}'); 
+var dodo5 = parseInt('{{ dodo5 }}'); 
+
+
+var xValues = [data1, data2, data3, data4, data5];
+var yValues = [dodo1, dodo2, dodo3, dodo4, dodo5];
+var barColors = ["red", "orange","green","blue","purple"];
+
+var topcustomerstickets = new Chart("topcustomerstickets", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Top 5 Customers Based on Tickets"
+    }
+}
+});
+</script>
+
+<script
+type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<canvas id="topcustomerscommissions" style="width:100%;max-width:700px"></canvas>
+
+<script>
+var kaka1 = '{{ kaka1 }}';
+var kaka2 = '{{ kaka2 }}'; 
+var kaka3 = '{{ kaka3 }}'; 
+var kaka4 = '{{ kaka4 }}'; 
+var kaka5 = '{{ kaka5 }}'; 
+
+var koko1 = parseInt('{{ koko1 }}');
+var koko2 = parseInt('{{ koko2 }}'); 
+var koko3 = parseInt('{{ koko3 }}'); 
+var koko4 = parseInt('{{ koko4 }}'); 
+var koko5 = parseInt('{{ koko5 }}'); 
+var xValues = [kaka1, kaka2, kaka3, kaka4, kaka5];
+var yValues = [koko1, koko2, koko3, koko4, koko5];
+var barColors = ["red", "orange","green","blue","purple"];
+
+var topcustomerscommissions = new Chart("topcustomerscommissions", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Top 5 Customers Based on Commissions"
+    }
+}
+});
+</script>
+<a href="/returnagent">Go back</a>
+</body>
+</html>

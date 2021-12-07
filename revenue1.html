@@ -1,0 +1,29 @@
+<html>
+<body>
+
+<div id="piechart"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    var posts = parseInt('{{ posts }}');
+    var post = parseInt('{{ post }}'); 
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Source', 'Amount'],
+      ['Direct', posts],
+      ['Indirect', post],
+    ]);
+
+      var options = {'title':'Last Month Revenue', 'width':800, 'height':800};
+    
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+</script> 
+<a href = '/revenue'>View Last Years's</a>
+<a href="/returnstaff">Go back</a>
+</body>
+<html> 

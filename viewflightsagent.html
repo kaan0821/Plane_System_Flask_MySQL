@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+
+{% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>You don't have any purchase history.</b>
+    </FONT>
+    {% endif %}
+
+{% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>These are your purchase history:</b>
+    </FONT>
+
+    <table>
+        <th>Airline Name</th>
+        <th>Flight Number</th>
+        <th>Customer Email</th>
+        <th>Status</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['customer_email']}}</td>
+            <td>{{line['status']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endif %}
+<a href="/returnagent">Go back</a>
+</body>
+</html>

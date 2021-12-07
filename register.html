@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/registerAuth" method="POST">
+	<label for="role">Choose the role you want to register as: </label>
+	<select name="role" id="role">
+		<option value="booking_agent">Booking Agent</option>
+		<option value="customer">Customer</option>
+		<option value="airline_staff">Airline Staff</option>
+	</select>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/">Go back</a>
+</body>
+</html>

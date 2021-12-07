@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+{% if not message %}
+	<a href="/login">Login</a>
+	<a href="/register">Register</a>
+	</br>
+	</br>
+	<form action="/flightsearchAuth" method="POST">
+		Flight Search:
+		<label for="base">For dates, please enter in YYYY-MM-DD format:</label>
+		</br>
+
+		<select name="base" id="base">
+		  <option value="departure_airport">Departure Airport</option>
+		  <option value="arrival_airport">Arrival Airport</option>
+		  <option value="departure_time">Departure Time</option>
+		</select> 
+
+		<input type="text" name = "text" placeholder="Enter Search Here" required/>
+
+		<input type="submit" value = Search />
+	</br>(If U want to rough search, add % signs LOL)
+		{% if error %}
+			<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+{% endif %}
+
+{% if message == "customer" %}
+	<a href="/logout">Logout</a>
+	<a href="/viewflights">View My Flights</a>
+	<a href="/spending">Track my spending</a>
+	</br>
+	</br>
+	<form action="/customersearchAuth" method="POST">
+		Flight Search:
+		<label for="base">For dates, please enter in YYYY-MM-DD format:</label>
+		</br>
+
+		<select name="base" id="base">
+		  <option value="departure_airport">Departure Airport</option>
+		  <option value="arrival_airport">Arrival Airport</option>
+		  <option value="departure_time">Departure Time</option>
+		</select> 
+
+		<input type="text" name = "text" placeholder="Enter Search Here" required/>
+
+		<input type="submit" value = Search />
+		</br>(If U want to rough search, add % signs LOL)
+		{% if error %}
+			<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+	{% endif %}
+
+{% if message == "booking_agent" %}
+	<a href="/logout">Logout</a>
+	<a href="/viewflightsagent">View My Flights</a>
+	<a href="/commission">View my commissions</a>
+	<a href="/topcustomer">View my top customers</a>
+	</br>
+	</br>
+	<form action="/agentsearchAuth" method="POST">
+		Flight Search:
+		<label for="base">For dates, please enter in YYYY-MM-DD format:</label>
+		</br>
+
+		<select name="base" id="base">
+		  <option value="departure_airport">Departure Airport</option>
+		  <option value="arrival_airport">Arrival Airport</option>
+		  <option value="departure_time">Departure Time</option>
+		</select> 
+
+		<input type="text" name = "text" placeholder="Enter Search Here" required/>
+
+		<input type="submit" value = Search />
+		</br>(If U want to rough search, add % signs LOL)
+		{% if error %}
+			<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+	{% endif %}
+
+{% if message == "airline_staff" %}
+	<a href="/logout">Logout</a>
+	<a href="/viewflightsstaff">View Flights</a>
+	<a href="/createflight">Create flight</a>
+	<a href="/changestatus">Change flight status</a>
+	<a href="/addairplane">Add airplane</a>
+	<a href="/addairport">Add airport</a>
+	<a href="/viewagents">View booking agents</a>
+	<a href="/viewcustomers">View frequent customers</a>
+	<a href="/viewreports">View my reports</a>
+	<a href="/revenue">Compare revenue</a>
+	<a href="/destination">View top destinations</a>
+	<a href="/permission">Grant permission</a>
+	<a href="/addagents">Add booking agents</a>
+	</br>
+
+	<form action="/flightsearchAuth" method="POST">
+		<label for="base">For dates, please enter in YYYY-MM-DD format:</label>
+		</br>
+
+		<select name="base" id="base">
+		  <option value="departure_airport">Departure Airport</option>
+		  <option value="arrival_airport">Arrival Airport</option>
+		  <option value="departure_time">Departure Time</option>
+		</select> 
+
+		<input type="text" name = "text" placeholder="Enter Search Here" required/>
+
+		<input type="submit" value = Search />
+		{% if error %}
+			<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+	{% endif %}
+
+</body>
+
+</html>

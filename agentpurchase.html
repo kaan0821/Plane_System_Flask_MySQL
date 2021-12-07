@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body>
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>There is something wrong with your input.</b>
+    </FONT>
+    {% endif %}
+
+    {% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>Your purchase was successful.</b>
+    </FONT>
+    {% endif %}
+
+<form action="/agentpurchaseAuth" method="POST">
+    <b>Which flight would you like to purchase?</b>
+    </br>
+
+	<label for="airline_name">Airline Name:</label>
+	<input type="text" name = "airline_name" placeholder="Airline Name" required/></br>
+
+    <label for="flight_num">Flight Number:</label>
+	<input type="text" name = "flight_num" placeholder="Flight Number" required/></br>
+    
+    <label for="customer_email">Customer Email:</label>
+	<input type="text" name = "customer_email" placeholder="Customer Email" required/></br>
+
+	<input type="submit" value = Purchase />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/returnagent">Go back</a>
+</body>
+</html>

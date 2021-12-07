@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<div id="piechart"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    var frogs = parseInt('{{ frogs }}');
+    var frog = parseInt('{{ frog }}'); 
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Source', 'Amount'],
+      ['Direct', frogs],
+      ['Indirect', frog],
+    ]);
+    
+      var options = {'title':'Last Year Revenue', 'width':800, 'height':800};
+    
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+</script> 
+<a href='/revenue1'>View Last Month's</a>
+<a href="/returnstaff">Go back</a>
+</body>
+<html> 

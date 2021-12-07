@@ -1,0 +1,102 @@
+<html>
+<head>
+</head>
+<body>
+
+{% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>There are either no customers or no such flight.</b>
+    </FONT>
+{% endif %}
+
+<table>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Time</th>
+    <th>Departure Airport</th>
+    <th>Arrival Time</th>
+    <th>Arrival Airport</th>
+    <th>Status</th>
+
+{% for line in posts %}
+    <tr>
+        <td>{{line['airline_name']}}</td>
+        <td>{{line['flight_num']}}</td>
+        <td>{{line['departure_time']}}</td>
+        <td>{{line['departure_airport']}}</td>
+        <td>{{line['arrival_time']}}</td>
+        <td>{{line['arrival_airport']}}</td>
+        <td>{{line['status']}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% if message == "successful" %}
+<FONT COLOR="GREEN">
+    <b>These are the customers on this flight:</b>
+</FONT>
+{% endif %}
+</br>
+<b>Search for customers on a flight here:</b>
+<form action="/viewflightsstaffAuth" method="POST">
+    <b>Airline Name:</b>
+    </br>
+	<input type="text" name = "airline_name" placeholder="Airline Name" required/> </br>
+    <b>Flight Number:</b>
+    </br>
+	<input type="text" name = "flight_num" placeholder="Flight Number" required/></br>
+	<input type="submit" value = Search />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+</br>
+<b>Search for flights based on range here:</b>
+<form action="/viewflightsstaffAuthh" method="POST">
+    <label for="firstDate">From:</label>
+    <input type="date" name = "firstDate" placeholder="First Date" required/></br>
+
+    <label for="secondDate">To:</label>
+    <input type="date" name = "secondDate" placeholder="Second Date" required/></br>
+
+    <input type="submit" value = View />
+</form>
+
+{% if message == "successful" %}
+<table>
+    <th>Customer Email</th>
+
+{% for line in post %}
+    <tr>
+        <td>{{line['customer_email']}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if message == "kiki" %}
+<table>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Time</th>
+    <th>Departure Airport</th>
+    <th>Arrival Time</th>
+    <th>Arrival Airport</th>
+    <th>Status</th>
+
+{% for line in dodo %}
+    <tr>
+        <td>{{line['airline_name']}}</td>
+        <td>{{line['flight_num']}}</td>
+        <td>{{line['departure_time']}}</td>
+        <td>{{line['departure_airport']}}</td>
+        <td>{{line['arrival_time']}}</td>
+        <td>{{line['arrival_airport']}}</td>
+        <td>{{line['status']}}</td>
+    </tr>
+{% endfor %}
+{% endif %}
+<a href="/returnstaff">Go back</a>
+</body>
+</html>

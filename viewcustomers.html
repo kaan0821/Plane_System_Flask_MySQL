@@ -1,0 +1,48 @@
+<html>
+<head>
+</head>
+<body>
+
+    {% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>Your input was incorrect.</b>
+    </FONT>
+    {% endif %}
+
+    <form action="/viewcustomersAuth" method="POST">
+        <b>The most frequent customer: {{post}}</b>
+        </br>
+        <label for="email">Email:</label>
+        <input type="text" name = "email" placeholder="email" required/></br>
+
+        <label for="airline_name">Airline:</label>
+        <input type="text" name = "airline_name" placeholder="airline" required/></br>
+
+        <input type="submit" value = View />
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+
+    </form>
+
+{% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>Here is the data:</b>
+    </FONT>
+
+    <table>
+        <th>Email</th>
+        <th>Flight Number</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['customer_email']}}</td>
+            <td>{{line['flight_num']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    {% endif %}
+    <a href="/returnstaff">Go back</a>
+</body>
+</html>

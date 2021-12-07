@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+
+{% if message == "unsuccessful" %}
+    <FONT COLOR="RED">
+        <b>You don't have any flights purchase history.</b>
+    </FONT>
+    {% endif %}
+
+{% if message == "successful" %}
+    <FONT COLOR="GREEN">
+        <b>These are your flight purchased:</b>
+    </FONT>
+
+    <table>
+        <th>Airline Name</th>
+        <th>Flight Number</th>
+        <th>Departure Time</th>
+        <th>Departure Airport</th>
+        <th>Arrival Time</th>
+        <th>Arrival Airport</th>
+        <th>Status</th>
+
+    {% for line in posts %}
+        <tr>
+            <td>{{line['airline_name']}}</td>
+            <td>{{line['flight_num']}}</td>
+            <td>{{line['departure_time']}}</td>
+            <td>{{line['departure_airport']}}</td>
+            <td>{{line['arrival_time']}}</td>
+            <td>{{line['arrival_airport']}}</td>
+            <td>{{line['status']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endif %}
+<a href="/returncustomer">Go back</a>
+</body>
+</html>

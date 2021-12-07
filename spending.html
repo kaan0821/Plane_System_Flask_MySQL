@@ -1,0 +1,41 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="spendingChart" style="width:100%;max-width:800px"></canvas>
+</br>
+<b >Total money spent in the last year is : {{data7}} </b>
+<script>
+var data1 = parseInt('{{ data1 }}');
+var data2 = parseInt('{{ data2 }}'); 
+var data3 = parseInt('{{ data3 }}'); 
+var data4 = parseInt('{{ data4 }}'); 
+var data5 = parseInt('{{ data5 }}'); 
+var data6 = parseInt('{{ data6 }}'); 
+
+var xValues = ["1st Month", "2nd Month", "3rd Month", "4th Month", "5th Month", "6th Month","End"];
+var yValues = [data1, data2, data3, data4, data5, data6,0];
+var barColors = ["red", "orange","green","blue","purple", "brown"];
+
+
+new Chart("spendingChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Last 6 Months of Spending"
+    }
+  }
+});
+</script>
+<a href="/returncustomer">Go back</a>
+</body>
+</html>
